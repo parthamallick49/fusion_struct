@@ -1,0 +1,33 @@
+body {
+  background-color: #f9fafc;
+  font-family: 'Poppins', sans-serif;
+}
+
+#layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+#sidebar {
+  width: 220px;
+  background: #2f3542;
+  color: #fff;
+}
+
+#content {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+}
+
+.sidebar a {
+  color: #ddd;
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background: #57606f;
+  color: #fff;
+}
