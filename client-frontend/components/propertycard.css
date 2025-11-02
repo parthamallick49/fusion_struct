@@ -1,0 +1,25 @@
+.property-card {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.property-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.property-title {
+  font-size: 1.125rem;
+  color: #1e40af;
+}
+
+.property-description {
+  font-size: 0.95rem;
+}
