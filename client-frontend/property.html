@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Properties | FusionStruct</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properties | FusionStruct</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="components/navbar.css">
+<link rel="stylesheet" href="components/footer.css">
+<link rel="stylesheet" href="assets/css/property.css">
 </head>
 <body>
-  <header></header>
 
-  <main class="container">
-    <h1>Our Properties</h1>
-    <div id="property-list" class="grid"></div>
-  </main>
+<div id="navbar"></div>
+<main>
 
-  <footer>© 2025 FusionStruct Engineering</footer>
+<section class="px-6 py-10 max-w-7xl mx-auto">
+  <h1 class="text-3xl font-bold mb-6">Our Properties</h1>
+  <div id="property-container" class="grid md:grid-cols-3 gap-6"></div>
+</section>
+</main>
 
-  <script src="js/navbar.js"></script>
-  <script src="js/property.js"></script>
+<div id="footer"></div>
+
+<script type="module">
+  import { initComponents } from './assets/js/components.js';
+  initComponents();
+
+  // Your property-specific JS
+  import './assets/js/property.js';
+ 
+</script>
 </body>
 </html>

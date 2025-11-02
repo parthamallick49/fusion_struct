@@ -1,0 +1,41 @@
+/* Footer styles */
+.footer {
+  background-color: #2E2E2E;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Footer links */
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  padding: 0;
+}
+
+.footer-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links li a:hover {
+  color: #FFC857;
+}
+
+/* Sticky footer fix using flexbox on body */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* main content grows to fill remaining space */
+}

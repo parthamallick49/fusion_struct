@@ -1,5 +1,6 @@
 // assets/js/config.js
-const BASE_URL = "https://backend.fusionstructengineering.com/api";
+//const BASE_URL = "https://backend.fusionstructengineering.com/api";
+const BASE_URL  = "http://localhost:5000/api"
 const TOKEN_KEY = "fusion_token";
 
 function setToken(token) {

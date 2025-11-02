@@ -1,32 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FusionStruct Engineering</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FusionStruct Engineering</title>
+
+<!-- Tailwind & Styles -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="components/navbar.css" />
+<link rel="stylesheet" href="components/footer.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body>
-  <header></header>
 
-  <section class="hero">
-    <h1>Welcome to FusionStruct Engineering</h1>
-    <p>Engineering excellence for modern infrastructure.</p>
-  </section>
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-  <section>
-    <h2>Featured Properties</h2>
-    <div id="property-list" class="grid"></div>
-  </section>
+<!-- Navbar -->
+<div id="navbar"></div>
+<main>
 
-  <section>
-    <h2>Latest Blogs</h2>
-    <div id="blog-list" class="grid"></div>
-  </section>
+<!-- Hero Section -->
+<section class="hero flex flex-col items-center justify-center text-center text-white relative">
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+  <div class="relative z-10 px-6">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Welcome to FusionStruct Engineering</h1>
+    <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+      Your trusted partner in real estate and consultancy solutions.
+    </p>
+    <div class="space-x-4">
+      <a href="property.html" class="btn-primary">Explore Properties</a>
+      <a href="blog.html" class="btn-secondary">Read Blogs</a>
+    </div>
+  </div>
+</section>
 
-  <footer>© 2025 FusionStruct Engineering</footer>
+<!-- Featured Properties -->
+<section class="py-20 max-w-7xl mx-auto px-6">
+  <h2 class="section-title">Featured Properties</h2>
+  <div id="property-container" class="grid md:grid-cols-3 gap-8 mt-10"></div>
+</section>
+</main>
 
-  <script src="js/navbar.js"></script>
-  <script src="js/main.js"></script>
+<!-- Footer -->
+<div id="footer"></div>
+
+<!-- Scripts -->
+<script type="module">
+async function loadHTML(path, elementId) {
+  const html = await fetch(path).then(res => res.text());
+  document.getElementById(elementId).innerHTML = html;
+}
+
+async function initNavbar() {
+  await loadHTML("components/navbar.html", "navbar");
+
+  // Dropdown toggle
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+  menuToggle?.addEventListener("click", () => navLinks.classList.toggle("active"));
+}
+
+async function initFooter() {
+  await loadHTML("components/footer.html", "footer");
+}
+
+// Initialize
+initNavbar();
+initFooter();
+</script>
 </body>
 </html>

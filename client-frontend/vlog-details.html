@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,5 +17,207 @@
 
   <script src="js/navbar.js"></script>
   <script src="js/blogDetails.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Details | FusionStruct</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: #333;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem 1rem;
+    }
+
+    .blog-detail-container {
+      max-width: 800px;
+      width: 100%;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .blog-detail-container img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-description {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-content {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: left;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 640px) {
+      .blog-detail-container {
+        padding: 1rem;
+      }
+
+      .blog-title {
+        font-size: 1.5rem;
+      }
+
+      .blog-content {
+        font-size: 0.95rem;
+      }
+
+      .blog-detail-container img {
+        max-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar placeholder -->
+  <div id="navbar"></div>
+
+  <main>
+    <div class="blog-detail-container" id="blog-detail">
+      <!-- Blog will be injected here -->
+    </div>
+  </main>
+
+  <footer style="text-align:center; padding:1rem; color:#777;">© 2025 FusionStruct Engineering</footer>
+
+  <script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const blogId = params.get("id");
+
+      if (!blogId) {
+        document.getElementById("blog-detail").innerHTML = "<p>Blog not found.</p>";
+        return;
+      }
+
+      const dummyBlogs = [
+        {
+          title: "Designing Modern Infrastructure",
+          description: "Learn how FusionStruct optimizes real estate structures for efficiency and sustainability.",
+          image: "assets/images/blog1.jpg",
+          content: "<p>This is the full content of the blog. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, nisl vel facilisis ultricies, metus justo tincidunt lacus, a posuere elit elit at enim.</p>"
+        },
+        {
+          title: "Smart Urban Development",
+          description: "The future of city planning is intelligent. Here’s how tech is shaping our world.",
+          image: "assets/images/blog2.jpg",
+          content: "<p>Full blog content about Smart Urban Development. Aliquam erat volutpat. Fusce sed purus sed risus vestibulum efficitur.</p>"
+        },
+        {
+          title: "Engineering the Future",
+          description: "How we bring precision and innovation to every FusionStruct project.",
+          image: "assets/images/blog3.jpg",
+content: `<h1>The Future of Work: How AI and Automation Are Redefining Careers</h1>
+<p>The 21st century is witnessing a tectonic shift in the way we work, live, and think about careers. Artificial Intelligence (AI) and automation are no longer just buzzwords—they are reshaping industries, redefining human potential, and challenging our assumptions about employability. While some herald these technologies as the dawn of unprecedented efficiency, others fear the societal consequences of massive workforce disruption. The truth, as always, lies somewhere in between.</p>
+
+<h2>The Rise of AI in the Workplace</h2>
+<p>Over the past decade, AI has moved from the lab to the boardroom, transforming processes once considered uniquely human. Algorithms now sift through mountains of data in seconds, perform predictive analyses, and even generate creative content. Tools like ChatGPT, automated customer service bots, and AI-driven analytics platforms are ubiquitous across sectors, from finance and healthcare to retail and manufacturing.</p>
+
+<p>The implications are profound:</p>
+<ul>
+<li><strong>Decision-Making Optimization:</strong> AI enables data-driven insights that reduce human error and accelerate decision-making. For instance, in logistics, AI predicts supply chain disruptions before they happen, saving companies millions.</li>
+<li><strong>Creative Collaboration:</strong> Contrary to the fear that AI replaces creativity, it can augment it. Designers, writers, and marketers are increasingly using AI tools to brainstorm ideas, automate repetitive tasks, and experiment with concepts at scale.</li>
+<li><strong>Personalized Services:</strong> From healthcare to education, AI allows highly tailored experiences. Medical AI can suggest treatment plans based on individual patient histories, while adaptive learning platforms customize lessons for every student.</li>
+</ul>
+
+<h2>Automation and Job Displacement: Myth vs. Reality</h2>
+<p>The notion that robots will steal all human jobs is overstated, but not entirely unfounded. Historically, technological revolutions—from the steam engine to computers—displaced certain roles while creating new ones. The difference today is speed and scope. Automation doesn’t just replace manual labor; it is starting to replace cognitive tasks as well.</p>
+
+<ul>
+<li><strong>At Risk:</strong> Repetitive roles, like data entry, assembly line work, and basic analysis, are most vulnerable. Even some mid-level professional roles—paralegals, junior accountants, and customer service representatives—face automation pressure.</li>
+<li><strong>Opportunities:</strong> Jobs that require empathy, creativity, strategic thinking, and complex problem-solving are likely to grow. Roles such as AI ethics consultants, human-centered designers, and hybrid technical-creative professionals are emerging rapidly.</li>
+</ul>
+
+<p>The takeaway: while some jobs will disappear, others will evolve, and entirely new career categories will emerge—demanding agility, lifelong learning, and an adaptive mindset.</p>
+
+<h2>The Skills That Will Matter</h2>
+<p>As AI and automation accelerate, the future workforce must pivot toward skills that machines struggle to replicate. These include:</p>
+
+<ul>
+<li><strong>Critical Thinking and Problem Solving:</strong> The ability to analyze ambiguity, identify root causes, and design solutions remains inherently human.</li>
+<li><strong>Emotional Intelligence and Leadership:</strong> Navigating interpersonal dynamics, motivating teams, and understanding human psychology will be key differentiators.</li>
+<li><strong>Tech Fluency:</strong> Understanding AI, cloud computing, and data analytics won’t be optional. Even non-technical professionals must engage with these tools intelligently.</li>
+<li><strong>Adaptability and Lifelong Learning:</strong> The half-life of skills is shrinking. Workers must embrace continuous education, reskilling, and flexibility to remain relevant.</li>
+</ul>
+
+<h2>The Ethical Dimension</h2>
+<p>AI isn’t just a technical challenge—it’s a moral one. Automation raises questions about privacy, bias, accountability, and the equitable distribution of wealth. Consider hiring algorithms: studies have shown that without careful oversight, AI can perpetuate existing biases, disadvantaging marginalized groups. Similarly, AI-driven productivity gains could concentrate wealth among a small fraction of the population unless policy interventions intervene.</p>
+
+<p>Businesses and governments must proactively design frameworks that balance innovation with social responsibility. Ethical AI, transparent algorithms, and worker transition programs are not optional—they are strategic imperatives.</p>
+
+<h2>Redefining Work-Life Balance</h2>
+<p>Ironically, while AI increases efficiency, it also blurs the lines between work and life. Remote work technologies, automated scheduling, and productivity tracking have changed not only where we work but also how we experience time. The future workplace will likely prioritize outcomes over hours, flexibility over rigidity, and holistic well-being over mere output.</p>
+
+<p>Companies that embrace human-centric policies—mental health support, flexible schedules, and continuous learning opportunities—will attract and retain the top talent in an AI-driven economy.</p>
+
+<h2>Strategic Implications for Organizations</h2>
+<p>For businesses, this shift is both a challenge and an opportunity:</p>
+<ul>
+<li><strong>Workforce Planning:</strong> Organizations must anticipate skill gaps and design reskilling initiatives. AI isn’t just a cost-saving tool—it’s a strategic enabler of innovation.</li>
+<li><strong>Innovation Culture:</strong> The human-AI collaboration must be nurtured. Teams that combine technical expertise with creative thinking will drive competitive advantage.</li>
+<li><strong>Agility:</strong> Market disruptions will accelerate. Organizations that embed adaptive structures, cross-functional teams, and continuous learning cultures will survive—and thrive.</li>
+</ul>
+
+<h2>Conclusion: A Call to Action</h2>
+<p>The future of work is not preordained. It is shaped by choices—both individual and collective. AI and automation will not eliminate work; they will redefine it. Those who resist adaptation risk obsolescence, while those who embrace it strategically can unlock unprecedented opportunities.</p>
+
+<p>Workers must think of themselves as lifelong learners, ready to pivot across roles, industries, and skill sets. Organizations must become human-AI symbiosis machines, leveraging technology while protecting the human core. And society must ensure that the benefits of these transformations are shared equitably, not hoarded by a few.</p>
+
+<p>In this brave new world, one truth is clear: the jobs of tomorrow won’t just demand technical skills—they will demand vision, creativity, empathy, and resilience. Prepare not just for the work of the future, but for the human potential it will unleash.</p>`
+
+        }
+      ];
+
+      const blog = dummyBlogs[blogId];
+      if (!blog) {
+        document.getElementById("blog-detail").innerHTML = "<p>Blog not found.</p>";
+        return;
+      }
+
+      document.getElementById("blog-detail").innerHTML = `
+        <img src="${blog.image}" alt="${blog.title}">
+        <h1 class="blog-title">${blog.title}</h1>
+        <p class="blog-description">${blog.description}</p>
+        <div class="blog-content">${blog.content}</div>
+      `;
+    });
+  </script>
+
 </body>
 </html>

@@ -11,8 +11,11 @@ const app = express();
 app.use(cors({
   origin: [
     "https://fusionstructengineering.com",
-    "https://admin.fusionstructengineering.com"
+    "https://admin.fusionstructengineering.com",
+    "http://localhost:5000/",
+    "http://127.0.0.1:5500/"
   ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
 
