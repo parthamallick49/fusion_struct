@@ -1,71 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FusionStruct Engineering</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FusionStruct Engineering</title>
 
-<!-- Tailwind & Styles -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="components/navbar.css" />
-<link rel="stylesheet" href="components/footer.css" />
-<link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="components/navbar.css" />
+  <link rel="stylesheet" href="components/footer.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-<!-- Navbar -->
-<div id="navbar"></div>
-<main>
+  <!-- Navbar -->
+  <div id="navbar"></div>
 
-<!-- Hero Section -->
-<section class="hero flex flex-col items-center justify-center text-center text-white relative">
+  <main>
+    <!-- Hero Section -->
+<section
+  class="hero relative min-h-screen bg-cover bg-center"
+  style="background-image: url('assets/images/bg-image.jpg');"
+>
+  <!-- Dark overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-  <div class="relative z-10 px-6">
-    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Welcome to FusionStruct Engineering</h1>
-    <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-      Your trusted partner in real estate and consultancy solutions.
+
+  <!-- Full-height Centered Text Box -->
+  <div class="relative z-10 w-1/2 h-screen mx-auto flex flex-col justify-center items-center bg-gray-800 shadow-2xl">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight text-gray-100 text-center">
+      Engineering the Future of Design & Realty
+    </h1>
+    <p class="text-lg md:text-xl mb-8 text-gray-200 text-center">
+      Consultancy. Construction. Real Estate — All in One Expert Platform.
     </p>
     <div class="space-x-4">
       <a href="property.html" class="btn-primary">Explore Properties</a>
-      <a href="blog.html" class="btn-secondary">Read Blogs</a>
+      <a href="blog.html" class="btn-secondary">Read Insights</a>
     </div>
   </div>
 </section>
 
-<!-- Featured Properties -->
-<section class="py-20 max-w-7xl mx-auto px-6">
-  <h2 class="section-title">Featured Properties</h2>
-  <div id="property-container" class="grid md:grid-cols-3 gap-8 mt-10"></div>
+
+
+
+
+    <!-- Services Section -->
+<section class="py-20 bg-gray-400">
+  <!-- Centered Title -->
+  <h2 class="section-title text-center mx-auto mb-10">Latest Blog Posts</h2>
+
+  <!-- Container for blog cards -->
+  <div id="blog-container" class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
+    <!-- Blog cards will be injected here dynamically -->
+  </div>
 </section>
-</main>
 
-<!-- Footer -->
-<div id="footer"></div>
 
-<!-- Scripts -->
-<script type="module">
-async function loadHTML(path, elementId) {
-  const html = await fetch(path).then(res => res.text());
-  document.getElementById(elementId).innerHTML = html;
+
+
+    <!-- Featured Properties -->
+<section class="py-20 bg-gray-600">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="section-title">Featured Properties</h2>
+    <div id="property-container" class="grid md:grid-cols-3 gap-8 mt-10"></div>
+  </div>
+</section>
+
+
+    <!-- Testimonials -->
+ 
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- JS -->
+  <script type="module">
+    async function loadHTML(path, id) {
+      const html = await fetch(path).then(res => res.text());
+      document.getElementById(id).innerHTML = html;
+    }
+
+    async function initNavbar() {
+      await loadHTML("components/navbar.html", "navbar");
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+      menuToggle?.addEventListener("click", () => navLinks.classList.toggle("active"));
+    }
+
+    async function initFooter() {
+      await loadHTML("components/footer.html", "footer");
+    }
+
+    // Fetch latest 3 blog posts
+// Fetch latest 3 blog posts and inject with your current design
+async function loadLatestBlogs() {
+  try {
+    // Fetch blog data from JSON
+    const response = await fetch('assets/data/blog.json'); // path to your JSON
+    const blogs = await response.json();
+
+    const latestBlogs = blogs.slice(0, 3); // get latest 3
+    const container = document.getElementById('blog-container');
+    container.innerHTML = ''; // clear container
+
+    latestBlogs.forEach(blog => {
+      const card = document.createElement('div');
+      card.classList.add('blog-card');
+
+      card.innerHTML = `
+        <img src="${blog.image}" alt="${blog.title}" class="blog-image" />
+        <div class="blog-content">
+          <h3 class="blog-title">${blog.title}</h3>
+          <p class="blog-description">${blog.description}</p>
+          <a href="blog-details.html?id=${blog.id}" class="read-more">Read More →</a>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+
+  } catch (err) {
+    console.error('Failed to load blogs:', err);
+  }
 }
 
-async function initNavbar() {
-  await loadHTML("components/navbar.html", "navbar");
+document.addEventListener('DOMContentLoaded', loadLatestBlogs);
 
-  // Dropdown toggle
-  const menuToggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
-  menuToggle?.addEventListener("click", () => navLinks.classList.toggle("active"));
-}
 
-async function initFooter() {
-  await loadHTML("components/footer.html", "footer");
-}
 
-// Initialize
-initNavbar();
-initFooter();
-</script>
+    initNavbar();
+    initFooter();
+  </script>
 </body>
 </html>

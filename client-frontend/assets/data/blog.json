@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "title": "Innovative Architectural Trends 2025",
+    "description": "Discover the latest in modern architecture, sustainable design, and futuristic building trends shaping the industry.",
+    "image": "assets/images/blog1.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Smart Real Estate Investments",
+    "description": "Learn how to identify high-return properties and invest wisely in today’s real estate market.",
+    "image": "assets/images/blog2.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Construction Technology Innovations",
+    "description": "A deep dive into the newest construction technologies improving efficiency and quality on-site.",
+    "image": "assets/images/blog3.jpg"
+  },
+  {
+    "id": "4",
+    "title": "MEP Design Best Practices",
+    "description": "Tips and guidelines for achieving optimal mechanical, electrical, and plumbing designs in large projects.",
+    "image": "assets/images/blog4.jpg"
+  }
+]
