@@ -24,12 +24,28 @@ function logout() {
   window.location.href = "login.html";
 }
 
-// Open/Close modal
 function openChangePasswordModal() {
-  document.getElementById("changePasswordModal").classList.remove("hidden");
+  console.log("openChangePasswordModal function called");
+  
+  let modal = document.getElementById("changePasswordModal");
+  
+  // If modal doesn't exist, try to find it again
+  if (!modal) {
+    console.warn("Modal not found, searching again...");
+    modal = document.getElementById("changePasswordModal");
+  }
+  
+  if (!modal) {
+    console.error("Change Password Modal element not found in DOM!");
+    return;
+  }
+  
+  console.log("Modal found, removing hidden class");
+  modal.classList.remove("hidden");
 }
 
 function closeChangePasswordModal() {
+  console.log("closeChangePasswordModal function called");
   document.getElementById("changePasswordModal").classList.add("hidden");
   document.getElementById("changePasswordStatus").textContent = "";
   document.getElementById("newPassword").value = "";
@@ -120,3 +136,8 @@ async function submitChangePassword() {
     status.style.color = "red";
   }
 }
+
+window.openChangePasswordModal = openChangePasswordModal;
+window.closeChangePasswordModal = closeChangePasswordModal;
+window.submitChangePassword = submitChangePassword;
+window.logout = logout;
